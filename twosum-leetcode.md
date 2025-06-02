@@ -132,3 +132,45 @@ public:
 }; 
 
  ``` 
+
+ 
+
+  #### approach 3: 
+
+  ```  
+
+ class Solution {
+
+public:
+
+    vector<int> twoSum(vector<int>& nums, int target) {
+
+         map<int, int> mp;
+
+    vector<int> final_sum;
+
+    for (int i = 0; i < nums.size(); i++) {
+
+        int remaing_sum = target - nums[i];
+
+        if (mp.find(remaing_sum) != mp.end()) {
+
+            final_sum.push_back(i);
+
+            final_sum.push_back(mp[remaing_sum]);
+
+            return final_sum;
+
+        }
+
+        mp[nums[i]] = i;
+
+    }
+
+    return final_sum;
+
+    }
+
+}; 
+
+ ``` 
