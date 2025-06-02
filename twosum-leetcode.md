@@ -2,7 +2,7 @@
   
   ## Problem Description
   
-  Can you solve this real interview question? Two Sum - Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+  Can you solve this real interview question? Two Sum - Given an array of integers numsÂ and an integer target, return indices of the two numbers such that they add up to target.
 
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
@@ -41,9 +41,9 @@ Output: [0,1]
  * -109 <= target <= 109
  * Only one valid answer exists.
 
- 
+Â 
 
-Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
+Follow-up:Â Can you come up with an algorithm that is less than O(n2)Â time complexity?
   
   ### Solution Language:
   ```
@@ -90,3 +90,45 @@ public:
 };
   ```
   
+
+ 
+
+  #### approach 1: 
+
+  ```  
+
+ class Solution {
+
+public:
+
+    vector<int> twoSum(vector<int>& nums, int target) {
+
+         map<int, int> mp;
+
+    vector<int> final_sum;
+
+    for (int i = 0; i < nums.size(); i++) {
+
+        int remaing_sum = target - nums[i];
+
+        if (mp.find(remaing_sum) != mp.end()) {
+
+            final_sum.push_back(i);
+
+            final_sum.push_back(mp[remaing_sum]);
+
+            return final_sum;
+
+        }
+
+        mp[nums[i]] = i;
+
+    }
+
+    return final_sum;
+
+    }
+
+}; 
+
+ ``` 
